@@ -26,7 +26,7 @@ def process_song_data(spark, input_data, output_data):
 	ouput_Data : wrotes processed file to s3 bucket
 	spark : spark session """
 	
-    song_data = input_data + 'song_data/*/*/*/*.json'
+    song_data = input_data + 'song_data/A/A/*/*.json'
 
    # reading song data
     df = spark.read.json(song_data)
@@ -66,7 +66,7 @@ def process_log_data(spark, input_data, output_data):
 
     # select user table columns  
     users_table = df.select('userid', 'firstName', 'lastName', 'gender', 'level').dropDuplicates()
-     # create ser table view 
+     # create user  table view 
     users_table.createOrReplaceTempView('users')
      # write data to user parquet file
     artists_table=users_table.write.parquet(os.path.join(output_data,'users/users.parquet'),'overwrite')
