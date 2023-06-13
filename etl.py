@@ -7,8 +7,11 @@ from datetime import datetime
 import os
 from pyspark.sql.functions import dayofweek
 
-#os.environ['AWS_ACCESS_KEY_ID']=config['AWS_ACCESS_KEY_ID']
-#os.environ['AWS_SECRET_ACCESS_KEY']=config['AWS_SECRET_ACCESS_KEY']
+config = configparser.ConfigParser()
+config.read('dl.cfg')
+
+os.environ['AWS_ACCESS_KEY_ID']=config['AWS_ACCESS_KEY_ID']
+os.environ['AWS_SECRET_ACCESS_KEY']=config['AWS_SECRET_ACCESS_KEY']
 
 
 def spark_session_creation():
