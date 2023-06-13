@@ -22,8 +22,8 @@ How to run :
 
 Create EMR cluster in AWS
 and create Notebook for EMR cluster and run the code from terminal
-schema for song play analysis:
 
+schema for song play analysis:
 reads data from s3 log_data,song_data folders and write as parquet files after processing
 
 
